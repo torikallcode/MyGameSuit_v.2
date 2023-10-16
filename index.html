@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;700&family=Bungee&family=Julius+Sans+One&family=Kanit:wght@200;300;400;600;700&family=Lobster&family=Montserrat:wght@400;500;600&family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>my Game Suit</title>
+</head>
+<body class="bg-[#222832] relative">
+    <div class="container min-w-full h-screen">
+        <!-- Header -->
+        <header class="bg-[#111720] h-24 flex justify-center items-center mb-3">
+            <h1 class="text-[#FFC82D] text-2xl font-semibold font-suit2 tracking-wider">Gunting Batu kertas</h1>
+        </header>
+        <!-- Main Content-->
+        <section class="section1">
+            <div class="mx-auto max-w-sm px-10">
+                <h1 class="text-gray-300 font-utama text-start mx-auto mb-7 text-2xl font-semibold">💎 <span id="saldo">0</span></h1>
+            </div>
+                <h1 id="tulisan" class="text-gray-300 font-utama mx-auto text-center text-xl mb-10 font-semibold">Ayoo menangkan 5 suit untuk <br> memenangkan permainan ini!</h1>
+                <div class="px-10 mx-auto">
+                    <div class="w-full h-full flex justify-center gap-16 items-center">
+                        <div class="">
+                            <h1 class="tanyaPlayer h-[128px] w-[98px] flex justify-center items-center text-9xl font-utama font-semibold text-gray-300 text-center">?</h1>
+                            <h2 class="text-xl font-utama font-bold text-center text-gray-300">Player : <span class="skorPlayer">0</span></h2>
+                        </div>
+                        <div class="">
+                            <h1 class="tanyaComputer h-[128px] w-[98px] flex justify-center items-center text-9xl font-utama font-semibold text-gray-300 text-center mx-auto">?</h1>
+                            <h2 class="text-xl font-utama font-bold text-center text-gray-300">Computer : <span class="skorComputer">0</span></h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Main content 2 -->
+            <section class="section2 px-5">
+                <div class="flex justify-center items-center gap-3 mt-10">
+                    <div id="gunting" class="tombol bg-gray-700 hover:bg-gray-600 w-28 h-28 flex justify-center items-center rounded-lg cursor-pointer">
+                        <h1 class="text-7xl">✌️</h1>
+                    </div>
+                    <div id="batu" class="tombol bg-gray-700 hover:bg-gray-600 w-28 h-28 flex justify-center items-center rounded-lg cursor-pointer">
+                        <h1 class="text-7xl">✊</h1>
+                    </div>
+                    <div id="kertas" class="tombol bg-gray-700 hover:bg-gray-600 w-28 h-28 flex justify-center items-center rounded-lg cursor-pointer">
+                        <h1 class="text-7xl">🤚</h1>
+                    </div>
+                </div>
+            </section>
+        <footer class="flex items-center justify-center">
+            <h1 class="mx-auto text-center text-gray-300 font-utama font-medium mt-16">By.@LealCode</h1>
+        </footer>
+        <!-- modal box Menang-->
+        <section id="modalBoxMenang" class="absolute w-80 h-60 bg-gray-700 top-[30%] left-0 right-0 mx-auto bottom-0 rounded-lg items-center z-20 hidden transition-all ease-in-out duration-300">
+            <div class="relative mt-10">
+                <h1 class="text-center mx-auto text-2xl font-utama font-bold text-gray-300 mb-7 flex justify-center items-center flex-col">YOU WIN!!! <span> Kamu hebat!</span></h1>
+                <button id="btnMenang" class="absolute left-0 right-0 font-utama text-lg font-semibold bg-[#FFC82D] hover:bg-[#c89e2c] px-2 py-3 w-40 mx-auto rounded-lg">Play again</button>
+            </div>
+        </section>
+        <!-- Modal box kalah -->
+        <section id="modalBoxKalah" class="absolute w-80 h-60 bg-gray-700 top-[30%] left-0 right-0 mx-auto bottom-0 rounded-lg items-center z-30 hidden transition-all ease-in-out duration-300">
+            <div class="relative mt-10">
+                <h1 class="text-center mx-auto text-2xl font-utama font-bold text-gray-300 mb-7 flex justify-center items-center  flex-col">You lose :&#40 <span>Ayo coba lagi</span></h1>
+                <button id="btnKalah" class="absolute left-0 right-0 font-utama text-lg font-semibold bg-[#FFC82D] hover:bg-[#c89e2c] px-2 py-3 w-40 mx-auto rounded-lg">Play again</button>
+            </div>
+        </section>
+        <div id="overlay" class="fixed bg-opacity-80 bg-[#111720] top-0 bottom-0 right-0 left-0 w-[100%] h-[100%] z-10 hidden">
+        </div>
+        <div id="overlaydua" class="fixed bg-opacity-80 bg-[#111720] top-0 bottom-0 right-0 left-0 w-[100%] h-[100%] z-10 hidden">
+        </div>
+        <!-- halaman awal -->
+        <section id="halamanAwal" class="w-full h-full bg-gray-900 absolute top-0 bottom-0 right-0 left-0 flex justify-center items-center z-30">
+            <div class="grid grid-cols-1 gap-5">
+                <button id="btnPlay" class="bg-slate-700 px-3 py-2 h-16 w-40 rounded-lg text-2xl font-utama font-semibold text-gray-300 hover:bg-slate-600">play</button>
+            </div>
+        </section>
+        <!-- halaman taruhan -->
+        <section id="halamanTaruhan" class="w-full h-full bg-gray-900 absolute top-0 bottom-0 right-0 left-0 hidden">
+            <div class="mx-auto grid justify-center gap-20 h-screen place-content-center">
+                <div class="mx-auto">
+                    <h1 class="text-3xl font-semibold font-utama text-gray-300 text-center">Bermain di angka:</h1>
+                </div>
+                <div class="grid grid-cols-1 gap-5 mx-auto">
+                    <button class="pilihT bg-slate-700 px-3 py-2 h-16 w-40 rounded-lg text-2xl font-utama font-semibold text-gray-300 hover:bg-slate-600">💎 10</button>
+                    <button class="pilihT bg-slate-700 px-3 py-2 h-16 w-40 rounded-lg text-2xl font-utama font-semibold text-gray-300 hover:bg-slate-600">💎 30</button>
+                    <button class="pilihT bg-slate-700 px-3 py-2 h-16 w-40 rounded-lg text-2xl font-utama font-semibold text-gray-300 hover:bg-slate-600">💎 50</button>
+                </div>
+            </div>
+        </section>
+        <!-- Modal box saldo -->
+        <section id="modalBoxSaldo" class="absolute w-80 h-60 bg-gray-700 top-[30%] left-0 right-0 mx-auto bottom-0 rounded-lg items-center z-20 hidden transition-all ease-in-out duration-300">
+            <div class="relative mt-10">
+                <h1 class="text-center mx-auto text-2xl font-utama font-bold text-gray-300 mb-7 flex justify-center items-center flex-col">Saldo mu habis:&#40 <span>top up dulu sana!</span></h1>
+                <button id="btnSaldo" class="absolute left-0 right-0 font-utama text-lg font-semibold bg-[#FFC82D] hover:bg-[#c89e2c] px-2 py-3 w-40 mx-auto rounded-lg">Play again</button>
+            </div>
+        </section>
+        
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
